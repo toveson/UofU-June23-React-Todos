@@ -2,37 +2,23 @@
 // TODO: need buttons for saving the todo, deleting the todo
 // TODO: empty lists (where todos will go)
 // TODO: make it so we can delete todos
-import { useState } from "react";
-
 // TODO: Save todos to local storage
 
+import Completed from "./views/Completed";
+import Dashboard from "./views/Dashboard";
+import { useState } from "react";
+
 function App() {
-  const [newTodo, setNewTodo] = useState("");
-
-  const handleSave = (e) => {
-    e.preventDefault();
-    console.log("hit");
-    localStorage.setItem("TODOS", newTodo);
-  };
-
-  console.log(newTodo);
-
+  const [currentPage, setCurrentPage] = useState("Dashboard");
   return (
-    <form>
-      <label type="text">enter todo</label>
-      <input
-        type="text"
-        value={newTodo}
-        onChange={(e) => setNewTodo(e.target.value)}
-      ></input>
-      <button
-        type="submit"
-        onClick={handleSave}
-        style={{ borderRadius: "10px" }}
-      >
-        Save TODO
+    <>
+      <button onClick={() => setCurrentPage("Dashboard")}>My Todos</button>
+      <button onClick={() => setCurrentPage("Completed")}>
+        Completed Todos
       </button>
-    </form>
+      {currentPage === "Dashboard" && <Dashboard />}
+      {currentPage === "Completed" && <Completed />}
+    </>
   );
 }
 
