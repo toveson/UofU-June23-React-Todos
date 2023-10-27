@@ -1,26 +1,7 @@
-// // TODO: Place to enter todo
-// TODO: need buttons for saving the todo, deleting the todo
-// TODO: empty lists (where todos will go)
-// TODO: make it so we can delete todos
-import { useEffect, useState } from "react";
+import PropTypes from "prop-types";
 
-// TODO: Save todos to local storage
-
-function NewTodo() {
-  const [newTodo, setNewTodo] = useState("");
-  const [existingTodos, setExistingTodos] = useState([]);
-
-  useEffect(() => {
-    setExistingTodos(JSON.parse(localStorage.getItem("TODOS")) || []);
-  }, []);
-
-  const handleSave = (e) => {
-    e.preventDefault();
-    const todos = [...existingTodos, newTodo];
-    setExistingTodos(todos);
-
-    localStorage.setItem("TODOS", JSON.stringify(todos));
-  };
+export const NewTodo = (props) => {
+  const { newTodo, setNewTodo, handleSave } = props;
 
   return (
     <form>
@@ -39,6 +20,10 @@ function NewTodo() {
       </button>
     </form>
   );
-}
+};
 
-export default NewTodo;
+NewTodo.propTypes = {
+  newTodo: PropTypes.string.isRequired,
+  setNewTodo: PropTypes.func.isRequired,
+  handleSave: PropTypes.func.isRequired,
+};

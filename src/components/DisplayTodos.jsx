@@ -3,16 +3,10 @@
 // TODO:
 // TODO:
 
-import { useEffect, useState } from "react";
+import PropTypes from "prop-types";
 
-export const DisplayTodos = () => {
-  const [existingTodos, setExistingTodos] = useState([]);
-
-  useEffect(() => {
-    setExistingTodos(JSON.parse(localStorage.getItem("TODOS")) || []);
-  }, []);
-
-  console.log(existingTodos);
+export const DisplayTodos = (props) => {
+  const { existingTodos } = props;
 
   return (
     // code goes here
@@ -30,4 +24,8 @@ export const DisplayTodos = () => {
       ))}
     </ul>
   );
+};
+
+DisplayTodos.propTypes = {
+  existingTodos: PropTypes.string.isRequired,
 };
