@@ -27,5 +27,5 @@ export const DisplayTodos = (props) => {
 };
 
 DisplayTodos.propTypes = {
-  existingTodos: PropTypes.string.isRequired,
+  existingTodos: PropTypes.array.isRequired,
 };

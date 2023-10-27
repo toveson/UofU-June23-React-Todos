@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
-import NewTodo from "../components/NewTodo";
+import { NewTodo } from "../components/NewTodo";
 import { DisplayTodos } from "../components/DisplayTodos";
-
 
 function Dashboard() {
   const [newTodo, setNewTodo] = useState("");
