@@ -18,9 +18,14 @@ export const DisplayTodos = () => {
     // code goes here
     <ul>
       {existingTodos.map((todo, key) => (
-        <li key={key} style={{margin: "5px"}}>
+        <li key={key} style={{ margin: "5px" }}>
           {todo}
-          <button style={{marginLeft: "10px"}} onClick={() => console.log(key)}>X</button>
+          <button
+            style={{ marginLeft: "10px" }}
+            onClick={() => console.log(key)}
+          >
+            X
+          </button>
         </li>
       ))}
     </ul>
