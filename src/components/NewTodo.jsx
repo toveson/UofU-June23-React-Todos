@@ -22,8 +22,6 @@ function NewTodo() {
     localStorage.setItem("TODOS", JSON.stringify(todos));
   };
 
-  console.log(existingTodos);
-
   return (
     <form>
       <label type="text">enter todo</label>

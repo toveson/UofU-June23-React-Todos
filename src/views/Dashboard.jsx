@@ -1,11 +1,13 @@
 import NewTodo from "../components/NewTodo";
-import MyTodos from "../components/MyTodos";
+import { DisplayTodos } from "../components/DisplayTodos";
+
 
 function Dashboard() {
+
   return (
     <>
       <NewTodo />
-      <MyTodos />
+      <DisplayTodos />
     </>
   );
 }
